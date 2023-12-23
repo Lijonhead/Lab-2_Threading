@@ -10,12 +10,11 @@
             Thread car1Thread = new Thread(car1.Drive);
             Thread car2Thread = new Thread(car2.Drive);
 
-            Console.WriteLine("Starting the race! \nInput 'status' to see the status of the cars");
+            Console.WriteLine("Starting the race! \nInput 'status' to see the status of the cars and to check the winner");
             car1Thread.Start();
             car2Thread.Start();
 
-            car1Thread.Join();
-            car2Thread.Join();
+            
             while (!car1.Finished || !car2.Finished)
             {
                 if (Console.ReadLine().ToLower() == "status")
@@ -60,6 +59,7 @@
                 Thread.Sleep(500); 
             }
             Finished = true;
+            Console.WriteLine($"{Name} finished the race!");
         }
 
         private void HandleRandomEvent()
